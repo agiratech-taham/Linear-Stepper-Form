@@ -38,3 +38,19 @@
     font-weight: bold;
   }
   
+  @media (max-width: 768px) {
+    .linear-stepper {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+  
+    .step {
+      flex-shrink: 0;
+      margin-right: 10px;
+    }
+  
+    .step:last-child {
+      margin-right: 0;
+    }
+  }
+  
