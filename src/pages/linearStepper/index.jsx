@@ -141,7 +141,7 @@ const Step2Form = ({ handleNext, handlePrevious }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="card">
-      <h2>Step 2</h2>
+      <h2>Director Info</h2>
       <p>Enter your email:</p>
       <input type="email" {...register('email')} className="form-input" />
       {errors.email && <p className="error-message">{errors.email.message}</p>}
@@ -156,7 +156,12 @@ const Step2Form = ({ handleNext, handlePrevious }) => {
   );
 };
 
-
+const cities = [
+    { value: 'chennai', label: 'Chennai' },
+    { value: 'bangalore', label: 'Bangalore' },
+    { value: 'mumbai', label: 'Mumbai' },
+    { value: 'hyderabad', label: 'Hyderabad' },
+  ];
 const Step3Form = ({ handleNext, handlePrevious }) => {
   const validationSchema = yup.object().shape({
     address: yup.string().required('Address is required'),
@@ -179,16 +184,15 @@ const Step3Form = ({ handleNext, handlePrevious }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="card">
-      <h2>Step 3</h2>
+      <h2>Financial Info</h2>
       <p>Enter your address:</p>
       <input type="text" {...register('address')} className="form-input" />
       {errors.address && <p className="error-message">{errors.address.message}</p>}
       <p>Enter your city:</p>
       <Select
-        options={properties}
+        options={cities}
         onChange={handleCityChange}
         isClearable
-        className="form-input"
       />
       {errors.city && <p className="error-message">{errors.city.message}</p>}
       <p>Enter your postal code:</p>
@@ -218,7 +222,7 @@ const Step4Form = ({ handleNext, handlePrevious }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="card">
-      <h2>Step 4</h2>
+      <h2>Document Upload</h2>
       <p>Enter your phone number:</p>
       <input type="tel" {...register('phone')} className="form-input" />
       {errors.phone && <p className="error-message">{errors.phone.message}</p>}
